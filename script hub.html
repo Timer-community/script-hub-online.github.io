@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Script Hub</title>
+    <style>
+        body {font-family:Arial,sans-serif;margin:0;padding:20px;background:#f5f5f5}
+        .search-container {display:flex;justify-content:center;margin-bottom:40px}
+        .oval {width:500px;height:120px;background:#4CAF50;border-radius:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;font-size:24px;font-weight:bold;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+        .search-input {width:80%;padding:10px;margin-top:15px;border:none;border-radius:25px;font-size:16px}
+        .results {margin:20px auto;padding:20px;background:white;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);max-width:800px}
+        .company-section {text-align:center;margin-top:50px}
+        .logo {width:150px;height:150px;background:#2196F3;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:20px;font-weight:bold;margin-bottom:20px}
+        .description {max-width:600px;margin:0 auto;line-height:1.6}
+        .publish-container {margin-top:50px;padding:20px;background:white;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);max-width:800px}
+        .publish-form {display:flex;flex-direction:column}
+        .publish-form label {margin-bottom:5px;font-weight:bold}
+        .publish-form input,.publish-form textarea,.publish-form select {padding:10px;margin-bottom:10px;border:1px solid #ddd;border-radius:5px;resize:vertical}
+        .publish-form button {padding:10px 20px;background:#4CAF50;color:white;border:none;border-radius:5px;cursor:pointer}
+        .publish-form button:hover {background:#45a049}
+        .instruction-text {margin-top:20px;padding:15px;background:#e8f5e8;border-left:4px solid #4CAF50;color:#2e7d32;font-style:italic}
+        .studio-link {color:#1976D2;text-decoration:underline;font-weight:bold}
+        .studio-link:hover {color:#0D47A1}
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="oval">Найдите скрипт
+            <input type="text" class="search-input" placeholder="Например: нейросети" id="searchInput">
+        </div>
+    </div>
+
+    <div class="results" id="results">Введите название скрипта в поле выше и нажмите Enter.</div>
+
+    <div class="logo">
+  <img src="C:\Users\Rushan\Desktop\Новая папка (2)\логотип.png" alt="Логотип компании" width="240" height="240">
+</div>
+
+
+        <h2>Timer ccommunity</h2>
+        <p class="description">Мы — компания, специализирующаяся на разработке и предоставлении качественных скриптов для различных задач. Наша миссия — сделать программирование доступным и понятным для всех.</p>
+    </div>
+            Чтобы добавить свой скрипт, напишите: язык программирования для этого скрипта, логику скрипта, сам скрипт, описание, название — и отправьте в комментарии в <a href="https://scratch.mit.edu/studios/50862668" class="studio-link" target="_blank">этой студии</a>. Обязательно добавьте свою почту.!!Если вы там не зарегестрированы войдите в верхнем правом углу экрана как имя:Timer_creater пароль 630036!!
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim().toLowerCase();
+                const resultsDiv = document.getElementById('results');
+                if (query === 'нейросети') {
+                    resultsDiv.innerHTML = `<h3>Скрипт для работы с нейросетями</h3><pre><code>// Пример простого скрипта для нейросети
+function createNeuralNetwork(layers) {
+    console.log("Создана нейросеть с слоями:", layers);
+}
+createNeuralNetwork([784, 256, 128, 10]);</code></pre><h4>Документация</h4><p>Этот скрипт создаёт простую нейросеть с заданной архитектурой слоёв.</p>`;
+                } else if (query === 'element search' || query === 'элемент поиск') {
+            resultsDiv.innerHTML = `<h3>Скрипт Element Search</h3><pre><code>Scratch.Спросить("ответ")
+если список "вопросы" содержит "ответ" {
+    задать "поиск" значение номер элемента "ответ" в "вопросы"
+    задать "диалог" значение объединить "асистент: " и элемент "моя переменная"
+}</code></pre><h4>Документация: Timer community</h4><p><strong>Назначение:</strong> скрипт для обработки вопросов и ответов в среде Scratch.</p>`;
+                } else {
+            resultsDiv.innerHTML = query ? `<p>Скрипт "${query}" не найден. Попробуйте другой запрос.</p>` : 'Введите название скрипта в поле выше.';
+                }
+            }
+        });
+
+        document.getElementById('publishForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Ваш скрипт отправлен! Мы свяжемся с вами по указанной почте.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
